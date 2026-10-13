@@ -1,14 +1,14 @@
 # Nhóm thực hiện K4 Track 3B
 
-Tên nhóm: {{Tên nhóm}}
+Tên nhóm: CaoDucAnh-Eval-Guard
 
-Repo chung: {{Link repo}}
+Repo chung: https://github.com/CDanh0301/K4-L3-DAY24-CaoDucAnh-Eval-Guard
 
-Trưởng nhóm/người nộp: {{Họ tên và MSSV}}
+Trưởng nhóm/người nộp: Cao Đức Anh - 2A202602754
 
-Ngày lab/deadline áp dụng: {{Ngày giờ theo thông báo lớp}} — Asia/Ho_Chi_Minh (UTC+07:00)
+Ngày lab/deadline áp dụng: 11:59 AM (13/10/2026) — Asia/Ho_Chi_Minh (UTC+07:00)
 
-Commit dùng để chấm: {{Commit SHA}}
+Commit dùng để chấm: d98f9b47c27678be1687a2853dd55aed6aecba24
 
 Mỗi nhóm nộp một repo. Điền đủ thành viên và một mục INDIVIDUAL cho từng người.
 Thêm/xóa rows để khớp nhóm thật; mẫu ba rows không ép nhóm phải có ba người.
@@ -17,34 +17,27 @@ Thêm/xóa rows để khớp nhóm thật; mẫu ba rows không ép nhóm phải
 
 | STT | Họ và tên | MSSV | Vai trò / công việc thật | Bằng chứng |
 |---|---|---|---|---|
-| 1 | {{Họ tên}} | {{MSSV}} | {{Phase/file/hàm}} | {{Commit/PR/report}} |
-| 2 | {{Họ tên}} | {{MSSV}} | {{Phase/file/hàm}} | {{Commit/PR/report}} |
-| 3 | {{Họ tên}} | {{MSSV}} | {{Phase/file/hàm}} | {{Commit/PR/report}} |
+| 1 | Cao Đức Anh | 2A202602754 | Tích hợp toàn bộ Phase A, B, C và chạy thực nghiệm | PR/commit d98f9b4; artifacts/ragas_50q.json, judge_results.json, guard_results.json |
 
-Người tích hợp/chạy batch/nộp link: {{Họ tên, công việc và bằng chứng}}.
+Người tích hợp/chạy batch/nộp link: Cao Đức Anh, hoàn thành toàn bộ thí nghiệm thực tế và báo cáo, commit d98f9b47c27678be1687a2853dd55aed6aecba24.
 
 ## Môi trường và chuẩn bị trước lớp
 
-OS/Python/compiler: {{Phiên bản thực tế}}.
-Virtualenv/dependencies/imports: {{Lệnh và kết quả}}.
-Models/Qdrant/50 answers đã chuẩn bị: {{Bằng chứng và giới hạn/fallback}}.
-Nếu cài full NeMo chưa thành công, ghi lỗi thực tế; không dùng unit test pass
-hoặc pip resolve để khẳng định runtime đã chạy.
+OS/Python/compiler: Windows 11 64-bit, Python 3.11.9, MSVC v143 compiler cho Annoy.
+Virtualenv/dependencies/imports: .venv cài đặt đầy đủ từ requirements/requirements.txt và constraints-core.txt, pyarrow 16.1.0, spaCy en_core_web_lg; lệnh kiểm tra import ragas, nemoguardrails, presidio_analyzer, spacy thành công.
+Models/Qdrant/50 answers đã chuẩn bị: Qdrant v1.9.7 Docker container port 6333; embedding BAAI/bge-m3; reranker FlashRank; sinh đầy đủ 50 câu trả lời vào artifacts/answers_50q.json với generation_mode='llm', model gpt-4o-mini-2024-07-18.
 
 ## INDIVIDUAL
 
-Sao chép mẫu cho mỗi thành viên; tiêu đề họ tên không dấu-MSSV.
+### CaoDucAnh-2A202602754
 
-### {{HoVaTen}}-{{MSSV}}
-
-- Phần được giao và phần thực tế đã làm: {{Nhiệm vụ, file/hàm, mục đích}}.
-- Bằng chứng: {{Commit/PR và artifacts/reports liên quan}}.
-- Cách kiểm tra: {{Unit mock hoặc live experiment, lệnh và kết quả}}.
-- Điều đã học: {{Khái niệm và cách thể hiện trong bài}}.
-- Giới hạn/cách xử lý: {{Vấn đề và kiểm chứng}}.
-- Nguồn/AI hỗ trợ nếu có: {{Công cụ, phạm vi, cách tự kiểm chứng}}.
+- Phần được giao và phần thực tế đã làm: Phụ trách toàn bộ bài lab bao gồm chuẩn bị pipeline RAG (m1-m5), chạy 50 answers, triển khai Phase A (RAGAS 4 metrics), Phase B (LLM Judge pairwise + calibration Cohen's kappa), Phase C (Presidio PII + NeMo Guardrails + đo latency P95) và hoàn thiện 3 báo cáo Markdown.
+- Bằng chứng: artifacts/answers_50q.json, artifacts/ragas_50q.json, artifacts/judge_results.json, artifacts/guard_results.json, doc/reports/*.md.
+- Cách kiểm tra: Đạt 86/86 offline pytest (test_phase_a, test_phase_b, test_phase_c, test_report_contracts, test_support). Chạy live experiment thành công trên toàn bộ 3 Phase và vượt qua check_lab.py.
+- Điều đã học: Hiểu sâu về cách đánh giá toàn diện pipeline RAG, phát hiện bias vị trí trong LLM Judge thông qua kỹ thuật Swap-and-Average, tính chỉ số Cohen's kappa cho calibration nhãn người, thiết kế Guardrails nhiều tầng Presidio regex + NeMo semantic classification và đo lường độ trễ P95 tuần tự.
+- Giới hạn/cách xử lý: NeMo Guardrails gọi API đám mây có độ trễ mạng cao (P95 đạt 639ms vượt budget 500ms). Hướng xử lý là đề xuất mô hình phân loại cục bộ trong kiến trúc CI/CD.
+- Nguồn/AI hỗ trợ nếu có: Sử dụng AI Assistant để hỗ trợ rà soát mã nguồn và kiểm thử logic, toàn bộ kết quả thực nghiệm được chạy và kiểm chứng độc lập trên hệ thống máy thật.
 
 ## Cập nhật sau khi nộp
 
-{{Ghi phiên bản nộp; nếu sửa sau deadline, ghi commit/thời điểm/lý do và thông báo
-coach cho phép áp dụng bản cập nhật. Nếu không có cập nhật, ghi rõ không có.}}
+Bản nộp chính thức đúng hạn, không có cập nhật sau deadline.
