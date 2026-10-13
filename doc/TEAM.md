@@ -8,7 +8,7 @@ Trưởng nhóm/người nộp: Cao Đức Anh - 2A202602754
 
 Ngày lab/deadline áp dụng: 11:59 AM (13/10/2026) — Asia/Ho_Chi_Minh (UTC+07:00)
 
-Commit dùng để chấm: d98f9b47c27678be1687a2853dd55aed6aecba24
+Commit dùng để chấm: 140a6ac6021592f8e05c1c1a09c2da23928f5c5d
 
 Mỗi nhóm nộp một repo. Điền đủ thành viên và một mục INDIVIDUAL cho từng người.
 Thêm/xóa rows để khớp nhóm thật; mẫu ba rows không ép nhóm phải có ba người.
@@ -17,9 +17,9 @@ Thêm/xóa rows để khớp nhóm thật; mẫu ba rows không ép nhóm phải
 
 | STT | Họ và tên | MSSV | Vai trò / công việc thật | Bằng chứng |
 |---|---|---|---|---|
-| 1 | Cao Đức Anh | 2A202602754 | Tích hợp toàn bộ Phase A, B, C và chạy thực nghiệm | PR/commit d98f9b4; artifacts/ragas_50q.json, judge_results.json, guard_results.json |
+| 1 | Cao Đức Anh | 2A202602754 | Tích hợp toàn bộ Phase A, B, C và chạy thực nghiệm | PR/commit 140a6ac6021592f8e05c1c1a09c2da23928f5c5d; artifacts/ragas_50q.json, judge_results.json, guard_results.json |
 
-Người tích hợp/chạy batch/nộp link: Cao Đức Anh, hoàn thành toàn bộ thí nghiệm thực tế và báo cáo, commit d98f9b47c27678be1687a2853dd55aed6aecba24.
+Người tích hợp/chạy batch/nộp link: Cao Đức Anh, hoàn thành toàn bộ thí nghiệm thực tế và báo cáo, commit 140a6ac6021592f8e05c1c1a09c2da23928f5c5d.
 
 ## Môi trường và chuẩn bị trước lớp
 
